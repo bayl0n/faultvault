@@ -22,6 +22,7 @@ var/
 
 # VSCode
 .vscode/
+*.code-workspace
 
 # Virtual environment
 venv/
