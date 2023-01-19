@@ -14,7 +14,9 @@ class FaultController extends Controller
      */
     public function index()
     {
-        return view('faults.index');
+        return view('faults.index', [
+            'faults' => Fault::with('user')->latest()->get(),
+        ]);
     }
 
     /**
@@ -36,6 +38,7 @@ class FaultController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'title' => 'required|string|max:64',
             'description' => 'required|string|max:255',
         ]);
 
