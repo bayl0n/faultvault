@@ -23,9 +23,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// TODO: Implement edit and update to Fault
 Route::resource('faults', FaultController::class)
-    ->only(['index', 'store', 'edit', 'update'])
+    ->only(['index', 'create', 'store', 'edit', 'update'])
     ->middleware(['auth']);
 
 Route::middleware('auth')->group(function () {
