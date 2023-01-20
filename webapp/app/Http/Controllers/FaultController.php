@@ -26,7 +26,7 @@ class FaultController extends Controller
      */
     public function create()
     {
-        //
+        return view('faults.create');
     }
 
     /**
@@ -66,7 +66,11 @@ class FaultController extends Controller
      */
     public function edit(Fault $fault)
     {
-        //
+        $this->authorize('update', $fault);
+
+        return view('faults.edit', [
+            'fault' => $fault,
+        ]);
     }
 
     /**
@@ -78,7 +82,16 @@ class FaultController extends Controller
      */
     public function update(Request $request, Fault $fault)
     {
-        //
+        $this->authorize('update', $fault);
+
+        $validated = $request->validate([
+            'title' => 'required|string|max:64',
+            'description' => 'required|string|max:255',
+        ]);
+
+        $fault->update($validated);
+
+        return redirect(route('faults.index'));
     }
 
     /**
