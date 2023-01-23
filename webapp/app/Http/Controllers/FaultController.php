@@ -102,6 +102,10 @@ class FaultController extends Controller
      */
     public function destroy(Fault $fault)
     {
-        //
+        $this->authorize('delete', $fault);
+
+        $fault->delete();
+
+        return redirect(route('faults.index'));
     }
 }

@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('faults', FaultController::class)
-    ->only(['index', 'create', 'store', 'edit', 'update'])
+    ->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['auth']);
 
 Route::middleware('auth')->group(function () {
