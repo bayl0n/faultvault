@@ -65,7 +65,7 @@ class FaultPolicy
      */
     public function delete(User $user, Fault $fault)
     {
-        //
+        return $this->update($user, $fault);
     }
 
     /**
