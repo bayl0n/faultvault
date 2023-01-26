@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\FaultController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('projects', ProjectController::class)
+    ->only(['index', 'create', 'store'])
+    ->middleware(['auth']);
 
 Route::resource('faults', FaultController::class)
     ->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
