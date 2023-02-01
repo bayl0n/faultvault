@@ -19,6 +19,7 @@
                         {{ $project->title }}
                     </h2>
                     <p class="mt-4 text-lg text-gray-900 dark:text-gray-100">{{ $project->description }}</p>
+                    <p class="mt-4 text-lg text-gray-900 dark:text-gray-100">{{ 'Author: '.$project->user->name }}</p>
                 </div>
             @endforeach
         </div>
