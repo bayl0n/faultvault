@@ -16,7 +16,7 @@ class ProjectController extends Controller
     public function index()
     {
         return view('projects.index', [
-            'projects' => DB::table('projects')->orderByDesc('created_at')->get(),
+            'projects' => Project::with('user')->latest()->get(),
         ]);
     }
 
