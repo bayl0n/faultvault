@@ -1,2 +1,3 @@
-# faultvault
-Bug tracking software
+# FaultVault
+
+A personalised bug tracking software.
