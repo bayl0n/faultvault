@@ -14,8 +14,15 @@ class Project extends Model
         'description',
     ];
 
+    // A project belongs to a user
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    // A project has many faults
+    public function project()
+    {
+        return $this->hasMany(Fault::class);
     }
 }

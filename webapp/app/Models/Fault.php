@@ -19,8 +19,15 @@ class Fault extends Model
         'created' => FaultCreated::class,
     ];
 
+    // A user can author many faults
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    // Many faults can belong to a project
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
     }
 }
