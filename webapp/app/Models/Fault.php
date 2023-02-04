@@ -13,6 +13,8 @@ class Fault extends Model
     protected $fillable = [
         'title',
         'description',
+        'status',
+        'priority'
     ];
 
     protected $dispatchesEvents = [

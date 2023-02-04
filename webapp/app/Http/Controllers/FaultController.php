@@ -38,8 +38,10 @@ class FaultController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:64',
-            'description' => 'required|string|max:255',
+            'title' => 'required|string|max:70',
+            'description' => 'required|string',
+            'status' => 'required|in:open,in_progress,todo,closed,resolved,abandoned,backlog',
+            'priority' => 'required|in:lowest,low,medium,high,highest',
         ]);
 
         $request->user()->faults()->create($validated);

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('faults', function (Blueprint $table) {
-            $table->foreignId('project_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('project_id')->nullable()->constrained()->nullOnDelete();
             $table->enum('status', [
                 'open',
                 'in_progress',
@@ -29,7 +29,7 @@ return new class extends Migration
                 'low',
                 'medium',
                 'high',
-                'higest',
+                'highest',
             ]);
             $table->longText('description')->change();
             $table->string('title', '70')->change();
